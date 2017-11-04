@@ -62,7 +62,7 @@ namespace reverseproxy
 			    int num = 0;
 			    try
 			    {
-			        NetworkStream stream = (new TcpClient(this.fwdDest, 80)).GetStream();
+			        NetworkStream stream = new TcpClient(fwdDest, 80).GetStream();
 			        byte[] bytes = new byte[BUFFER_SIZE];
 			        bytes = Encoding.UTF8.GetBytes(requestHeaders);
 			        stream.Write(bytes, 0, bytes.Length);
